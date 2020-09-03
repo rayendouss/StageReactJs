@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { PaginationItem } from "reactstrap";
+
 import {News} from '../shared/News'
 import { Link } from "react-router-dom";
 export class Newscard extends Component{

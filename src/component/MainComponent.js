@@ -19,6 +19,7 @@ import Videos from "./VideosArComponent"
 import { Switch, Route, Redirect , BrowserRouter as Router ,useParams } from 'react-router-dom';
 class Main extends Component{
     act =[{id:1,news:'كورونا: 90 % من المصابين في تونس بلا أعراض',date:'12/12/2020',type:'مجتمع',photo:''},{id:2,news:'الحامة: رابع وفاة بفيروس كورونا',date:'12/12/2020',type:'مجتمع',photo:''},{id:3,news:'قطة تونسية تصل ألمانيا في رحلة استثنائية!',date:'12/12/2020',type:'مجتمع',photo:''},{id:5,news:'تشديد القيود لمنع انتشار كورونا في عدد من الدول',date:'12/12/2020',type:'مجتمع',photo:''},{id:4,news:'سلبوا مواطنة وطعنوها ..القبض على عصابة البراكاجات بالطريقة ا...',date:'12/12/2020',type:'مجتمع',photo:''}];
+    news=News;
  
   
     render()

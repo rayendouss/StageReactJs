@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const Politique=(props)=> {
 
   const news = News;
+
   const a =window.location.pathname;
 const url = a.substring(a.lastIndexOf('/') + 1)
  var i = 0 ;
@@ -43,7 +44,7 @@ const url = a.substring(a.lastIndexOf('/') + 1)
 
             return (
               <div style={{height: "76px" , width: "320px"}} >
-                     <Link to={`/article/${p.id}`}>
+                     <Link to={`/article/${p.id}`} style={{textDecoration: 'none'}}>
                  
               <div  key={p.id}>
               
@@ -59,6 +60,35 @@ const url = a.substring(a.lastIndexOf('/') + 1)
           }
           })
         }
+      </div>
+      <div  style={{backgroundColor : "black" , color : "white", textAlign: "right" ,      borderRight:" 6px solid #d10909"}}>
+          <h2>الأكثر قراءة</h2>
+          <hr />
+      </div>
+      <div >
+
+          {
+              news.map((p)=>{
+                  if(p.id>(news.length)-5){
+
+                      return (
+                          <div style={{height: "76px" , width: "320px"}} >
+                              <Link to={`/article/${p.id}`} style={{textDecoration: 'none'}}>
+
+                                  <div  key={p.id}>
+
+                                      <div  >
+                                          <time className="dateTime">{p.date}</time>
+                                          <h3 className="smallTitle"  > {p.news}</h3>
+                                          <hr></hr>
+                                      </div>
+                                  </div>
+                              </Link>
+                          </div>
+                      )
+                  }
+              })
+          }
       </div>
       </section>
         <div style={{marginLeft : 450}} >

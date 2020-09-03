@@ -46,7 +46,7 @@ p.map((i)=>{
                  <div className="row" >
                      <section>
                      <div style={{height: "76px" , width: "320px", marginRight:"20px"}}>
-                         <Link  to={`/article/${i.id}`}>
+                         <Link  to={`/article/${i.id}`} style={{textDecoration: 'none'}}>
                              <div style={{float:"right" }}>
                                  <figure >
                                      <a>  <img src={i.photo} style={{width: "250px"}}/></a>
@@ -67,13 +67,9 @@ p.map((i)=>{
 function Sport(){
         render()
     {
-
-
-
-
             return(
                 <div>
-                    <Link  to={`/article/${cult[0].id}`}>
+                    <Link  to={`/article/${cult[0].id}` } style={{textDecoration: 'none'}}>
                         <div style={{float:"right" , padding:"10px"}}>
                             <figure >
                                 <a>  <img src={cult[0].photo} style={{width: "450px"}}/></a>
@@ -102,7 +98,7 @@ function Sport(){
                   <div>
                      <div  >
                     
-                    <Link to={`/article/${i.id}`}>
+                    <Link to={`/article/${i.id}`} style={{textDecoration: 'none'}}>
          <div  key={i.id}>
          <figure >
           <a>  <img src={i.photo} style={{width: "350px"}}/></a>
@@ -123,21 +119,57 @@ function Sport(){
     
 
       const Accueil = (props) =>{
-     
-         var Acc = props.act.map((it)=>{
-   
+          var nj=0; var ns=0;
+    var just = p.map((i)=>{
+
+        if(i.typef=="justice" & nj<5){
+            nj++;
+        return(
+            <div style={{height: "76px" , width: "320px"}} >
+
+                <Link to={`/article/${i.id}`} style={{textDecoration: 'none'}}>
+                    <div className="row"  key={i.id}>
+                        <Lastest last={i} />
+                        <img style={{height:"50px" , width:"60px"}} src={i.photo}/>
+                    </div>
+                </Link>
+            </div>
+        )
+        }})
+          var soc = p.map((i)=>{
+
+              if(i.typef=="social" & ns<5){
+                  ns++;
+                  return(
+                      <div style={{height: "76px" , width: "320px"}} >
+
+                          <Link to={`/article/${i.id}`} style={{textDecoration: 'none'}}>
+                              <div className="row" key={i.id}>
+
+
+                                  <Lastest last={i} />
+
+                              </div>
+                          </Link>
+                      </div>
+                  )
+              }})
+     var na=0;
+         var Acc = p.map((it)=>{
+             if(na<5&& it.videos==""){
+                 na++
             return(
                 
                      <div style={{height: "76px" , width: "320px"}} >
                    
-                   <Link to={`/article/${it.id}`}>
+                   <Link to={`/article/${it.id}`} style={{textDecoration: 'none'}}>
                 <div  key={it.id}>
                 
                     <Lastest last={it} />
                 </div>
             </Link>
                 </div>
-            )
+            )}
 
         })
         
@@ -149,7 +181,7 @@ function Sport(){
                      <div className="row" style={{height: "76px" , width: "320px"}} >
                          <div>
                   <a>  <img src={it.photo} style={{width: "70px" ,marginLeft:250,textAlign:"right"}}/></a> </div>
-                   <Link to={`/article/${it.id}`}>
+                   <Link to={`/article/${it.id}`} style={{textDecoration: 'none'}}>
                 <div  key={it.id}>
                 
                     <Lastest last={it} />
@@ -183,9 +215,7 @@ function Sport(){
                 <div  style={{backgroundColor : "black" , color : "white", textAlign: "right" ,      borderRight:" 6px solid #d10909"}}>
                     <h2>آخر الأخبار</h2>
                     <hr />
-                </div>  
-                   
-             
+                </div>
             <div>
                 {Acc}
             </div>
@@ -197,9 +227,18 @@ function Sport(){
                     <div>
                         {Acc}
                     </div>
-            <div>
-                
-            </div>
+                    <br></br>
+
+                    <div>
+                        <div  style={{backgroundColor : "black" , color : "white", textAlign: "right" ,      borderRight:" 6px solid #d10909"}}>
+                            <h2>مجتمع
+                            </h2>
+                            <hr />
+                        </div>
+                        <div>
+                            {soc}
+                        </div>
+                    </div>
             </section>
             
           <div >
@@ -248,15 +287,26 @@ function Sport(){
                        </div>
                           </section>
                </div>
-               <div >
-                   videos
-               </div>
-                  <div >
-                  justice
-              </div>
+
+                  <div>
+                      <section>
+
+                      <div  style={{backgroundColor : "black" , color : "white",textAlign: "right" ,      borderRight:" 6px solid #d10909" ,width:350 ,marginLeft:20}}>
+                          <h2>قضاء</h2>
+
+                      </div>
+
+                      <div style={{marginLeft : 30}}>
+                          {just}
+                      </div>
+                          </section>
+                  </div>
+
                   </div>
         </section>
        </div>
+
+
         </div>
     );
 }

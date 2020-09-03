@@ -18,11 +18,11 @@ const Videos=(props)=> {
             <section>
 
             <br></br>
-    <div  style={{backgroundColor : "white" , color : "black", textAlign: "right" ,      borderRight:" 6px solid #d10909" ,marginLeft : 1450}} >
+    <div  style={{backgroundColor : "white" , color : "black", textAlign: "right" ,      borderRight:" 6px solid #d10909" ,marginRight : 30}} >
         <h2>{url}</h2>
-        <hr />
+
     </div>
-                <div className="row" style={{marginLeft:350}}>
+                <div className="row" style={{marginLeft:450}}>
                 {
                     news.map((i)=>{
                         if(i.videos !=""){
