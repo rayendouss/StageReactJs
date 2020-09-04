@@ -59,7 +59,9 @@ export class Newscard extends Component{
     types.push(max2)
     AcNews=types;
          return (
+
             <div >
+                aaaaaaaaaaaaaaaaaaaaaaaa
             {AcNews.map((i)=>
             
          (    <div  >
@@ -90,6 +92,7 @@ export class Newscard extends Component{
       
    <div  key={maxeco.id}>
    <figure >
+
           <a>  <img src={maxeco.photo} style={{width: "350px", marginLeft:20}}/></a>
           <figcaption style={{position : "relative" , top:"-190px" , backgroundColor : "red" , left:"315px" , height:"30px" , lineHeight:"30px" , width:"50px", padding : "0 15Opx" , color:"white" ,borderRight:" 6px solid #FFFFFF" ,marginRight:"20"}}>
             {maxeco.type}

@@ -42,7 +42,7 @@ function Header (props) {
 
   </div>
 </div>
-          <NavbarBrand ><div className="col-4"> <Link to="/"  ><img src='assets/images/logo.png' style = {{ width : 150, height : 60, marginLeft : 1350 }} alt='الاخبارية التونسية'   /> </Link> </div></NavbarBrand>
+          <NavbarBrand ><div className="col-4"> <Link to="/test"  ><img src='assets/images/logo.png' style = {{ width : 150, height : 60, marginLeft : 1350 }} alt='الاخبارية التونسية'   /> </Link> </div></NavbarBrand>
       <NavbarBrand >
       <div className="col-8" style={{top:"10px"}}>
       <div className="col-9">

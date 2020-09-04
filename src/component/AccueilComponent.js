@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import Newscard from './Newscard'
 import {News} from '../shared/News'
 import { render } from "@testing-library/react";
+import Test from './Test'
 import Videos from "./VideoComponent";
-import Slider from "react-slick";
+import Card from "react-bootstrap/Card";
 import styled from "styled-components";
 const Wrapper = styled.div`width: 100%`;
 const Page = styled.div`width: 100%`;
@@ -45,11 +46,11 @@ p.map((i)=>{
              return(
                  <div className="row" >
                      <section>
-                     <div style={{height: "76px" , width: "320px", marginRight:"20px"}}>
+                     <div style={{height: "76px" , width: "320px", marginRight:"10px"}}>
                          <Link  to={`/article/${i.id}`} style={{textDecoration: 'none'}}>
                              <div style={{float:"right" }}>
                                  <figure >
-                                     <a>  <img src={i.photo} style={{width: "250px"}}/></a>
+                                     <a>  <img src={i.photo} style={{width: "200px"}}/></a>
                                  </figure>
                                  <div><time className="dateTime">{i.date}</time> </div>
                                  <div> <h3 className="smallTitle"  > {i.news}</h3></div>
@@ -69,10 +70,10 @@ function Sport(){
     {
             return(
                 <div>
-                    <Link  to={`/article/${cult[0].id}` } style={{textDecoration: 'none'}}>
+                    <Link  to={`/article/${cult[0].id}` } style={{textDecoration: 'none' ,marginRight:"10px"}}>
                         <div style={{float:"right" , padding:"10px"}}>
                             <figure >
-                                <a>  <img src={cult[0].photo} style={{width: "450px"}}/></a>
+                                <a>  <img src={cult[0].photo} style={{width: "400px"}}/></a>
                             </figure>
                             <div><time className="dateTime">{cult[0].date}</time> </div>
                             <div> <h3 className="smallTitle"  > {cult[0].news}</h3></div>
@@ -271,40 +272,23 @@ function Sport(){
 
            <div style={{height: "250px" , width: "1150px",marginLeft:"100px"}} ><Videos/></div>
            </section>
-        <section>
-              <div >
 
-               <div  >
-                   <section>
-              <div  style={{backgroundColor : "white" , color : "black", textAlign: "right" ,      borderRight:" 6px solid #d10909"}}>
-                    <h2>ثقافة</h2>
 
-                </div>
-
-                       <div >
-                       <div style={{float:"right"}}> <Sport /> </div>
-                           <div  style={{float:"right",marginRight:"20px"}}> <Cultur /> </div>
-                       </div>
-                          </section>
-               </div>
-
-                  <div>
-                      <section>
-
-                      <div  style={{backgroundColor : "black" , color : "white",textAlign: "right" ,      borderRight:" 6px solid #d10909" ,width:350 ,marginLeft:20}}>
-                          <h2>قضاء</h2>
-
-                      </div>
-
-                      <div style={{marginLeft : 30}}>
-                          {just}
-                      </div>
-                          </section>
-                  </div>
-
-                  </div>
-        </section>
        </div>
+            <div>
+                <div className="container">
+                    <div className="row align-items-start">
+                        <div className="col-12 col-md m-1">
+                        </div>
+                        <div className="col-12 col-md m-1">
+                            aaaaaaaa
+                        </div>
+                        <div className="col-12 col-md m-1">
+                           aaaaaaaaaaaaaa
+                        </div>
+                    </div>
+                </div>
+        </div>
 
 
         </div>

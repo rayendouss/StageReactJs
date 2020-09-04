@@ -22,8 +22,8 @@ export const News =
 {id:20, news:'العبدلي ينفي الغاء عرضه الليلة في قرطاج',date:" 2020-10-28 10:32" , type :"ثقافة",photo:"/assets/images/abd.jpg",typef:"culture",videos:""},
 {id:21, news:'ممثلون يعتصمون أمام قناة التاسعة للمطالبة بمستحقاتهم',date:"  2020-08-28 12:51" , type :"ثقافة",photo:"/assets/images/9.jpg",typef:"culture",videos:""}
 ,{id:22, news:"(تونسيان يحملان زيه) - الزمالك يعلن عن اصابة عدد من لاعبيه ب\"كورونا\"..",date:"2020-08-25 20:51",type:"رياضة",photo:"/assets/images/cor.jpg",typef: "sport",videos:""}
-,{id:23, news:"بالفيديو، موجة حرارة قد تتجاوز 45 درجة الخميس المقبل",date:"2020-05-11 13:42",type:"",photo:"/assets/images/degre.jpg",typef:"",videos:"https://www.youtube.com/watch?time_continue=1&v=mODB2yEmrXA&feature=emb_title" }
-,{id:24, news:"اندلاع حريق في محلات لبيع الفريب بسوق الحفصية بالعاصمة",date:" 2020-05-13 11:40",type:"",photo:"/assets/images/hafseya.jpg",typef:"",videos:"https://www.youtube.com/watch?v=uJTVJl4zYzI&feature=emb_title" }
-,{id:25, news:"شاهد أول فيديو نُشر على \"يوتيوب\" قبل 15 عاما!",date:" 2020-04-29 21:57",type:"",photo:"/assets/images/first.jpg",typef:"",videos:"https://www.youtube.com/watch?time_continue=6&v=jNQXAC9IVRw&feature=emb_title" }
+,{id:23, news:"بالفيديو، موجة حرارة قد تتجاوز 45 درجة الخميس المقبل",date:"2020-05-19 13:42",type:"مجتمع",photo:"/assets/images/degre.jpg",typef:"social",videos:"https://www.youtube.com/watch?time_continue=1&v=mODB2yEmrXA&feature=emb_title" }
+,{id:24, news:"اندلاع حريق في محلات لبيع الفريب بسوق الحفصية بالعاصمة",date:" 2020-05-13 11:40",type:"مجتمع",photo:"/assets/images/hafseya.jpg",typef:"social",videos:"https://www.youtube.com/watch?v=uJTVJl4zYzI&feature=emb_title" }
+,{id:25, news:"شاهد أول فيديو نُشر على \"يوتيوب\" قبل 15 عاما!",date:" 2020-10-29 21:57",type:"ثقافة",photo:"/assets/images/first.jpg",typef:"culture",videos:"https://www.youtube.com/watch?time_continue=6&v=jNQXAC9IVRw&feature=emb_title" }
 
 ];
