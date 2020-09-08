@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import { Breadcrumb, BreadcrumbItem , PaginationLink , PaginationItem , Pagination, Col , Table,Row} from 'reactstrap';
 import StickyHeadTable from './NewsComponent';
+import { Card, CardImg, CardText, CardBody,
+    Breadcrumb, BreadcrumbItem  ,CardTitle, CardSubtitle} from 'reactstrap';
 import { Link } from "react-router-dom";
 import Newscard from './Newscard'
 import {News} from '../shared/News'
 import { render } from "@testing-library/react";
-import Test from './Test'
+import Test from './Test';
 import Videos from "./VideoComponent";
-import Card from "react-bootstrap/Card";
 import styled from "styled-components";
 const Wrapper = styled.div`width: 100%`;
 const Page = styled.div`width: 100%`;
+
 let cult;
 cult=[];
 let news;
@@ -42,7 +43,7 @@ p.map((i)=>{
         {return(
 
 
-             cult.slice(1).map((i)=>{
+             cult.slice(1,3).map((i)=>{
              return(
                  <div className="row" >
                      <section>
@@ -73,7 +74,7 @@ function Sport(){
                     <Link  to={`/article/${cult[0].id}` } style={{textDecoration: 'none' ,marginRight:"10px"}}>
                         <div style={{float:"right" , padding:"10px"}}>
                             <figure >
-                                <a>  <img src={cult[0].photo} style={{width: "400px"}}/></a>
+                                <a>  <img src={cult[0].photo} style={{width: "350px"}}/></a>
                             </figure>
                             <div><time className="dateTime">{cult[0].date}</time> </div>
                             <div> <h3 className="smallTitle"  > {cult[0].news}</h3></div>
@@ -277,14 +278,38 @@ function Sport(){
        </div>
             <div>
                 <div className="container">
-                    <div className="row align-items-start">
-                        <div className="col-12 col-md m-1">
+                    <div className="row ">
+                        <div style={{marginRight:50}}>
+
+                            <div  style={{backgroundColor : "black" , color : "white",textAlign: "right" ,      borderRight:" 6px solid #d10909" ,width:350,marginLeft:-50 }}>
+                                <h2>قضاء</h2>
+                            </div>
+                            <div style={{marginLeft : -50}}>
+                                {just}
+                            </div>
+
                         </div>
-                        <div className="col-12 col-md m-1">
-                            aaaaaaaa
+                        <div style={{marginRight:350}}>
+
+                            <div  style={{backgroundColor : "black" , color : "white",textAlign: "right" ,      borderRight:" 6px solid #d10909" ,width:350 }}>
+
+                                <h2>متابعات بالفيديو</h2>
+                            </div>
+                            <div>
+                                <Test/>
+                            </div>
+
                         </div>
-                        <div className="col-12 col-md m-1">
-                           aaaaaaaaaaaaaa
+                        <div >
+
+                            <div  style={{backgroundColor : "black" , color : "white",textAlign: "right" ,      borderRight:" 6px solid #d10909" ,width:300 ,marginRight:"-210px" }}>
+                                <h2>ثقافة</h2>
+
+                                <div >
+                                    <div  style={{float:"right",marginRight:-20}}> <Sport /> </div>
+                                    <div style={{float:"right"}}> <Cultur /> </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

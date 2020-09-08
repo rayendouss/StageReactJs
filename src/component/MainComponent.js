@@ -17,6 +17,7 @@ import PostDetail from './PostDetailComponent'
 import Contact from "./Contactus"
 import Videos from "./VideosArComponent"
 import Test from "./Test"
+import Header2 from "./header2";
 import { Switch, Route, Redirect , BrowserRouter as Router ,useParams } from 'react-router-dom';
 class Main extends Component{
     act =[{id:1,news:'كورونا: 90 % من المصابين في تونس بلا أعراض',date:'12/12/2020',type:'مجتمع',photo:''},{id:2,news:'الحامة: رابع وفاة بفيروس كورونا',date:'12/12/2020',type:'مجتمع',photo:''},{id:3,news:'قطة تونسية تصل ألمانيا في رحلة استثنائية!',date:'12/12/2020',type:'مجتمع',photo:''},{id:5,news:'تشديد القيود لمنع انتشار كورونا في عدد من الدول',date:'12/12/2020',type:'مجتمع',photo:''},{id:4,news:'سلبوا مواطنة وطعنوها ..القبض على عصابة البراكاجات بالطريقة ا...',date:'12/12/2020',type:'مجتمع',photo:''}];
@@ -40,7 +41,7 @@ class Main extends Component{
         return (
             <Router>
             <div className="row">
-           
+                <Route exact path ="/h"><Header2/></Route>
               <Header act={this.act}/>
               <Switch>
                   <Switch>
@@ -58,6 +59,7 @@ class Main extends Component{
            <Route exact path ="/contactus" ><Contact/></Route>
            <Route exact path ="/article/:id" ><PostDetail/></Route>
            <Route exact path ="/videos"><Videos/></Route>
+
                       <Route path="/test" > <Test/> </Route>
            <Route  path="news/:id" component={()=><NewsDetail new={this.state.News} />}/>
            </Switch>

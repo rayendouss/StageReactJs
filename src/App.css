@@ -275,3 +275,59 @@ padding:3px;
 .mediumTitle, .mediumTitle a {
   font-size: 18px;
 }
+.headerPage .logo {
+    padding: 13px 0 10px;
+    width: 100%;
+    border-left: none;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+}
+.headerSite {
+    background: #002351;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 35px;
+    color: rgba(255, 255, 255, .75);
+    z-index: 100;
+}
+.headerContent {
+    width: 100%;
+}
+.headerContent {
+    width: calc(100% - 186px);
+    }
+.headerContent {
+    width: calc(100% - 220px);
+   }
+.container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.topHeader {
+    line-height: 40px;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+}
+.mainMenu {
+    display: none;
+}
+.mainMenu {
+    position: relative;
+}
+.topHeader .social {
+    display: none;
+}
+
+    .topHeader .social {
+        left: 15px;
+    }
+    .topHeader .social {
+        border-right: 1px solid rgba(255,255,255,.2);
+        position: absolute;
+        top: 0;
+        left: 50px;
+        background: #002351;
+    }
