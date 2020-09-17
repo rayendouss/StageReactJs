@@ -48,7 +48,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function StickyHeadTable() {
+export default function StickyHeadTawble(rows) {
+console.log(rows.rows)
+
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(1);
@@ -67,20 +69,20 @@ export default function StickyHeadTable() {
     
     
           <TableBody >
-            {News.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+            {rows.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
 
               return (
                 <div >
-                     <Link to={`/article/${row.id}`} style={{textDecoration: 'none'}}>
+                     <Link to={`/article/${row._id}`} style={{textDecoration: 'none'}}>
                 <div >
                 <figure >
-         <a>  <img src={row.photo} style = {{ width : 700, height :450}} /></a>
+         <a>  <img src={row.Photo} style = {{ width : 700, height :450}} /></a>
          <figcaption style={{position : "relative" , top:"-430px" , backgroundColor : "red" , left:"645px" , height:"30px" , lineHeight:"30px" , width:"50px", padding : "0 15Opx" , color:"white" ,borderRight:" 6px solid #FFFFFF" ,marginRight:"20"}}>
-           {row.type}
+           {row.Type}
          </figcaption>
          </figure>
          </div>
-         <h6 className="dateTime2" style={{float: "right"}}>{row.date}</h6> <br></br>
+         <h6 className="dateTime2" style={{float: "right"}}>{row.Date}</h6> <br></br>
         <p style={{float: "right"}}>{row.news}</p>
         </Link>
        </div>

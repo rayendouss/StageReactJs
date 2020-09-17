@@ -12,8 +12,6 @@ import styled from "styled-components";
 const Wrapper = styled.div`width: 100%`;
 const Page = styled.div`width: 100%`;
 
-let cult;
-cult=[];
 let news;
 news=News;
 var p= news.sort(function(a, b){
@@ -21,26 +19,36 @@ var p= news.sort(function(a, b){
 
 })
 
-p.sort();
-p.map((i)=>{
-    if(i.typef=="culture"){
-        cult.push(i)
-    }
-})
 
     function Lastest (last) {
    
         return (
             <div  >
-            <time className="dateTime">{last.last.date}</time> 
+            <time className="dateTime">{last.last.Date}</time>
             <h3 className="smallTitle"  > {last.last.news}</h3>
             <hr></hr>
         </div>
         );
     }
-    function Cultur() {
+    function Cultur(rows) {
+
+    console.log(rows.rows)
+        var p= rows.rows.sort(function(a, b){
+            return new Date(b.date) - new Date(a.date);
+
+        })
+        let cult=[];
+        p.map((i)=>{
+            if(i.TypeF=="culture"){
+                cult.push(i)
+            }
+        })
+console.log(cult)
          render ()
-        {return(
+
+        {
+
+            return(
 
 
              cult.slice(1,3).map((i)=>{
@@ -48,12 +56,12 @@ p.map((i)=>{
                  <div className="row" >
                      <section>
                      <div style={{height: "76px" , width: "320px", marginRight:"10px"}}>
-                         <Link  to={`/article/${i.id}`} style={{textDecoration: 'none'}}>
+                         <Link  to={`/article/${i._id}`} style={{textDecoration: 'none'}}>
                              <div style={{float:"right" }}>
                                  <figure >
-                                     <a>  <img src={i.photo} style={{width: "200px"}}/></a>
+                                     <a>  <img src={i.Photo} style={{width: "200px"}}/></a>
                                  </figure>
-                                 <div><time className="dateTime">{i.date}</time> </div>
+                                 <div><time className="dateTime">{i.Date}</time> </div>
                                  <div> <h3 className="smallTitle"  > {i.news}</h3></div>
                              </div>
 
@@ -66,50 +74,82 @@ p.map((i)=>{
              })
 
         ) }}
-function Sport(){
+function Sport(rows){
+ console.log(rows.rows)
+    var p= rows.rows.sort(function(a, b){
+        return new Date(b.date) - new Date(a.date);
+
+    })
+    let cult=[];
+    p.map((i)=>{
+        if(i.TypeF=="culture"){
+            cult.push(i)
+        }
+    })
+    news=News
+    console.log(news[0])
+    console.log(cult)
+var lastcult=rows.rows.filter((p)=>p.TypeF=="culture")
+
         render()
     {
-            return(
+      return(
+           cult.slice(0,1).map((i)=>{
+            return (
                 <div>
-                    <Link  to={`/article/${cult[0].id}` } style={{textDecoration: 'none' ,marginRight:"10px"}}>
-                        <div style={{float:"right" , padding:"10px"}}>
-                            <figure >
-                                <a>  <img src={cult[0].photo} style={{width: "350px"}}/></a>
+                    <Link to={`/article/${i._id}`} style={{textDecoration: 'none', marginRight: "10px"}}>
+                        <div style={{float: "right", padding: "10px"}}>
+                            <figure>
+                                <a> <img src={i.Photo} style={{width: "350px"}}/></a>
                             </figure>
-                            <div><time className="dateTime">{cult[0].date}</time> </div>
-                            <div> <h3 className="smallTitle"  > {cult[0].news}</h3></div>
+                            <div>
+                                <time className="dateTime">{i.Date}</time>
+                            </div>
+                            <div><h3 className="smallTitle"> {i.news}</h3></div>
                         </div>
 
                     </Link>
 
                 </div>
-            )
+            )})
+        )
     }
 }
 
+  function  LastVideo(row) {
 
+    render()
+      {
+          console.log(row.list)
+          return(
+              <div>
+                  <Test rows={row.list}/>
+              </div>
+          )
+      }
+  }
     function Politique (rows){
        render()
         {  var   news=rows.rows; console.log(rows)
             return (
                 
             news.map((i)=>{
-                if(i.typef =="arabe" || i.typef =="national" ||i.typef =="international" )
+                if(i.TypeF =="arabe" || i.TypeF =="national" ||i.TypeF =="international" )
                 {
             return(
                   <div>
                      <div  >
                     
-                    <Link to={`/article/${i.id}`} style={{textDecoration: 'none'}}>
-         <div  key={i.id}>
+                    <Link to={`/article/${i._id}`} style={{textDecoration: 'none'}}>
+         <div  key={i._id}>
          <figure >
-          <a>  <img src={i.photo} style={{width: "350px"}}/></a>
+          <a>  <img src={i.Photo} style={{width: "350px"}}/></a>
           <figcaption style={{position : "relative" , top:"-190px" , backgroundColor : "red" , left:"520px" , height:"30px" , lineHeight:"30px" , width:"50px", padding : "0 15Opx" , color:"white" ,borderRight:" 6px solid #FFFFFF" ,marginRight:"20"}}>
-            {i.type}
+            {i.Type}
           </figcaption>
           </figure>
           <div  >
-       <time className="dateTime">{i.date}</time> 
+       <time className="dateTime">{i.Date}</time>
        <h3 className="smallTitle"  > {i.news}</h3>
        <hr></hr>
    </div>
@@ -121,32 +161,35 @@ function Sport(){
     
 
       const Accueil = (props) =>{
-          var nj=0; var ns=0;
-    var just = p.map((i)=>{
 
-        if(i.typef=="justice" & nj<5){
+
+          var nj=0; var ns=0;
+
+    var just = props.act.map((i)=>{
+
+        if(i.TypeF=="justice" & nj<5){
             nj++;
         return(
             <div style={{height: "76px" , width: "320px"}} >
 
-                <Link to={`/article/${i.id}`} style={{textDecoration: 'none'}}>
-                    <div className="row"  key={i.id}>
+                <Link to={`/article/${i._id}`} style={{textDecoration: 'none'}}>
+                    <div className="row"  key={i._id}>
                         <Lastest last={i} />
-                        <img style={{height:"50px" , width:"60px"}} src={i.photo}/>
+                        <img style={{height:"50px" , width:"60px"}} src={i.Photo}/>
                     </div>
                 </Link>
             </div>
         )
         }})
-          var soc = p.map((i)=>{
+          var soc = props.act.map((i)=>{
 
-              if(i.typef=="social" & ns<5){
+              if(i.TypeF=="social" & ns<5){
                   ns++;
                   return(
                       <div style={{height: "76px" , width: "320px"}} >
 
-                          <Link to={`/article/${i.id}`} style={{textDecoration: 'none'}}>
-                              <div className="row" key={i.id}>
+                          <Link to={`/article/${i._id}`} style={{textDecoration: 'none'}}>
+                              <div className="row" key={i._id}>
 
 
                                   <Lastest last={i} />
@@ -157,15 +200,15 @@ function Sport(){
                   )
               }})
      var na=0;
-         var Acc = p.map((it)=>{
-             if(na<5&& it.videos==""){
+         var Acc = props.act.map((it)=>{
+             if(na<5&& it.Videos=="null"){
                  na++
             return(
                 
                      <div style={{height: "76px" , width: "320px"}} >
                    
-                   <Link to={`/article/${it.id}`} style={{textDecoration: 'none'}}>
-                <div  key={it.id}>
+                   <Link to={`/article/${it._id}`} style={{textDecoration: 'none'}}>
+                <div  key={it._id}>
                 
                     <Lastest last={it} />
                 </div>
@@ -205,7 +248,7 @@ function Sport(){
 
     return (
        
-        <div >
+        <div className="acc">
             <div>
                 <Breadcrumb style ={{width :'70px' , marginLeft : 30}}>
                    
@@ -246,8 +289,8 @@ function Sport(){
           <div >
              <Newscard/>
          </div>
-         <div >
-          <StickyHeadTable /> 
+         <div className="pagi">
+          <StickyHeadTable rows={props.act}/>
           <br>
           </br>
           <div  style={{backgroundColor : "white" , color : "black", textAlign: "right" ,      borderRight:" 6px solid #d10909"}}>
@@ -255,7 +298,7 @@ function Sport(){
                   
                 </div>  
                 <br></br>
-          <Politique rows={News} />
+          <Politique rows={props.act} />
           </div>
          <div>
      
@@ -271,12 +314,12 @@ function Sport(){
                    <div> <h2>رياضة</h2></div>
                 </div>
 
-           <div style={{height: "250px" , width: "1150px",marginLeft:"100px"}} ><Videos/></div>
+           <div className="scroll" style={{height: "250px" , width: "1150px",marginLeft:"100px"}} ><Videos/></div>
            </section>
 
 
        </div>
-            <div>
+            <div className="types">
                 <div className="container">
                     <div className="row ">
                         <div style={{marginRight:50}}>
@@ -296,7 +339,7 @@ function Sport(){
                                 <h2>متابعات بالفيديو</h2>
                             </div>
                             <div>
-                                <Test/>
+                                <LastVideo list={props.act} />
                             </div>
 
                         </div>
@@ -306,8 +349,8 @@ function Sport(){
                                 <h2>ثقافة</h2>
 
                                 <div >
-                                    <div  style={{float:"right",marginRight:-20}}> <Sport /> </div>
-                                    <div style={{float:"right"}}> <Cultur /> </div>
+                                    <div  style={{float:"right",marginRight:-20}}> <Sport rows={props.act}/> </div>
+                                    <div style={{float:"right"}}> <Cultur rows={props.act}/> </div>
                                 </div>
                             </div>
                         </div>

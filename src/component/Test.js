@@ -3,56 +3,54 @@ import Carousel from 'react-elastic-carousel'
 import Item from "semantic-ui-react/dist/commonjs/views/Item";
 import {News} from '../shared/News';
 import {Link} from "react-router-dom";
+
 class Test extends Component{
+    state={
+        items:[],
+        isLoaded:false,
+        vid:[]
+    }
 
-   render(){
-       const news= News;
-       var newstri=[];
-       news.map((i)=>{
-           if(i.videos!=""){
-               newstri.push(i)
-           }
-       })
-       var p= newstri.sort(function(a, b){
-           return new Date(b.date) - new Date(a.date);
+    componentDidMount() {
+        fetch('http://localhost:3100/all')
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({ items: data.news ,isLoaded : true ,vid:data.news.filter(vido=>vido.Videos!="null")})
 
-       })
+            })
+            .catch(console.log)
 
-       return(
-           <div>
-
-           <Carousel itemsToShow={1} style={{width:350,height:300, background:"white" }}>
-
-                   <Item >
-                       <Link to={`/article/${p[0].id}`} style={{textDecoration: 'none'}}>
-                           <img src={p[0].photo} style={{width:250, height:200}}/>
-                       </Link>
-                       <h6 className="dateTime2" style={{color:"red"}}>{p[0].date}</h6>
-                       <p>{p[0].news}</p>
-
-                   </Item>
+    }
+    render(){
 
 
-                   <Item>
-                       <Link to={`/article/${p[1].id}`} style={{textDecoration: 'none'}}>
-                           <img src={p[1].photo} style={{width:250, height:200}}/>
-                       </Link>
-                       <h6 className="dateTime2" style={{color:"red"}}>{p[1].date}</h6>
-                       <p>{p[1].news}</p>
-                   </Item>
+        return(
+            <div>
+                <Carousel itemsToShow={1} style={{width:350,height:300, background:"white" }}>
 
+                    {
+                        this.state.vid.reverse().slice(0,3).map((p)=>{
 
-                   <Item>
-                       <Link to={`/article/${p[2].id}`} style={{textDecoration: 'none'}}>
-                       <img src={p[2].photo} style={{width:250, height:200}}/>
-                       </Link>
-                       <h6 className="dateTime2" style={{color:"red"}}>{p[2].date}</h6>
-                       <p>{p[2].news}</p>
-                   </Item>
+                                return(
+                                  <div>
 
-           </Carousel>
-           </div>
-       )
-   }
+                                          <Item >
+                                              <Link to={`/article/${p._id}`} style={{textDecoration: 'none'}}>
+                                                  <img src={p.Photo} style={{width:250, height:200}}/>
+                                              </Link>
+                                              <h6 className="dateTime2" style={{color:"red"}}>{p.Date}</h6>
+                                              <p>{p.news}</p>
+
+                                          </Item>
+
+                                  </div>
+                                )
+
+                        })
+                    }
+                </Carousel>
+            </div>
+        )
+    }
 }
 export default Test ;

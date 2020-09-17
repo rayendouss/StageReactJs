@@ -3,17 +3,89 @@
 
 .App {
   text-align: center;
+   width: 1505px;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+@media screen and (max-width: 1199px){
+    .headerSite {
+        padding: 0;
+        width: 100%;
+    }}
+@media screen and (max-width: 590px) {
 
+    .acc{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .scroll{
+        display: none;
+        width: 100%;
+    }
+    .types{
+        display: flex;
+        width: 100%;
+
+    }
+
+
+}
+@media screen and (max-width: 800px) {
+
+    .acc{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .types{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+}
+@media screen and (max-width: 1000px) {
+
+    .acc{
+        display: flex;
+        width: 100%;
+    }
+
+    
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.toggle{
+    width:100%;
+    padding: 10px 20px;
+    background: #002351;
+    text-align: right;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 10px;
+    display: none;
+}
+@media (max-width: 1088px) {
+    .toggle{
+        display: block;
+    }
+    .social{
+           width: 100%;
+    }
+    .social ite{
+        display: block;
+        text-align: center;
+    }
 }
 
 .App-header {
@@ -331,3 +403,9 @@ padding:3px;
         left: 50px;
         background: #002351;
     }
+
+
+.column {
+    float: left;
+    width: 50%;
+}
