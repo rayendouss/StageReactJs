@@ -293,6 +293,10 @@ var lastcult=rows.rows.filter((p)=>p.TypeF=="culture")
           <StickyHeadTable rows={props.act}/>
           <br>
           </br>
+             <br>
+             </br>
+             <br>
+             </br>
           <div  style={{backgroundColor : "white" , color : "black", textAlign: "right" ,      borderRight:" 6px solid #d10909"}}>
                     <h2>سياسة</h2>
                   

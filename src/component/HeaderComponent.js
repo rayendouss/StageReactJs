@@ -1,5 +1,5 @@
-
-import React, { Component } from "react";
+import { render } from "@testing-library/react";
+import React, {Component, useEffect} from "react";
 import {
     MDBNavbar,  MDBFormInline , MDBCol, MDBIcon
 } from "mdbreact";
@@ -9,24 +9,33 @@ import { NavLink ,Link} from 'react-router-dom';
 import {NavDropdown} from 'react-bootstrap';
 import {FaYoutube,FaTwitter,FaInstagram, FaFacebookF } from "react-icons/fa";
 
+
 let news;
 news=News;
 var p= news.sort(function(a, b){
     return new Date(b.date) - new Date(a.date);
 
 })
-const scroll = p.slice(1,6).map((i)=>{
-    return(
-        <div key={i.id} className="img1">
-            {
-                <Link style={{color:"#FFFFFF"}} to={`/article/${i.id}`} style={{textDecoration: 'none'}}>
-                    <p style={{color:"white"}}>{i.news} <MDBIcon icon="globe-africa" />   </p> </Link>
-            }
-        </div>
-         )
-})
 
-function Header(props){
+function scroll(list) {
+    render()
+    {
+        list.list.slice(1,6).map((i)=>{
+            return(
+
+                <div key={i.id} className="img1">
+                    {
+                        <Link style={{color:"#FFFFFF"}} to={`/article/${i.id}`} style={{textDecoration: 'none'}}>
+                            <p style={{color:"white"}}>{i.news} <MDBIcon icon="globe-africa" />   </p> </Link>
+                    }
+                </div>
+            )})
+    }
+
+}
+
+function Header({act}){
+
     return (
         <MDBNavbar className="headerSite" >
             <div className="container-fluid">
@@ -48,7 +57,19 @@ function Header(props){
                                         :الأخبار
                                     </div>
                                     <div className="marquee" style={{color:"#FFFFFF"}}>
-                                        {scroll}
+                                        {act.slice(0, 6).map((i) => {
+                                            return (
+
+                                                <div key={i._id} className="img1">
+                                                    {
+                                                        <Link style={{color: "#FFFFFF"}} to={`/article/${i._id}`}
+                                                              style={{textDecoration: 'none'}}>
+                                                            <p style={{color: "white"}}>{i.news} <MDBIcon
+                                                                icon="globe-africa"/></p></Link>
+                                                    }
+                                                </div>
+                                            )
+                                        })}
 
                                     </div>
                                 </div>

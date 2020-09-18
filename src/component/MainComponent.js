@@ -43,7 +43,7 @@ class Main extends Component{
             return new Date(b.Date) - new Date(a.Date);
 
         });
-       
+
         const PolitiqueDetail = ({match}) =>{
            
             return (
@@ -51,9 +51,9 @@ class Main extends Component{
                 <Politique idp={match.params.id} />
             )     
         }
-       
-    
-       
+
+
+        console.log("aabababababba",this.state.items)
       
         return (
             <Router>

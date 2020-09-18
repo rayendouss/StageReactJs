@@ -30,7 +30,18 @@ export class Latest extends Component {
         var { isLoaded , items} = this.state
         const news=items
         console.log(news)
-
+        let tech=[];
+        news.map((t)=>{
+            if(t.TypeF=== "technologie"){
+                tech.push(t)
+            }
+        })
+        let suivi=[];
+        news.map((s)=>{
+            if(s.TypeF=== "suivi"){
+                suivi.push(s)
+            }
+        })
 
 
 
@@ -136,7 +147,7 @@ function Detail(art){
 
                     <div >
                         <figure >
-                            <a>  <img src={art.art.Photo} style = {{ width : 700, height :450}} /></a>
+                            <a>  <img src={art.art.Photo} style = {{ width : 600, height :450}} /></a>
                             <figcaption style={{position : "relative" , top:"-430px" , backgroundColor : "red" , left:"645px" , height:"30px" , lineHeight:"30px" , width:"50px", padding : "0 15Opx" , color:"white" ,borderRight:" 6px solid #FFFFFF" ,marginRight:"20"}}>
                                 {art.art.Type}
                             </figcaption>
@@ -144,7 +155,7 @@ function Detail(art){
                     </div>
                     <h6 className="dateTime" style={{float: "right"}}>{art.art.Date}</h6> <br></br>
                     <p style={{float: "right"}}>{art.art.news}</p> <br></br>
-                    <h4 style={{float: "right"}}>{art.art.Description}</h4>
+
                 </div>
 
             </div>)
@@ -206,10 +217,13 @@ const PostDetail=(props)=> {
     return(
         <div >
 
-            <div className="row" style={{ marginLeft : 30}}>
+            <div className="row" >
 
-                <div >  <Latest /></div>
-                <div  > <Detail art={news} /></div>
+                <div className="row" style={{marginLeft:20}} >  <Latest />
+
+
+
+               <Detail art={news}  /></div>
             </div>
 
         </div>

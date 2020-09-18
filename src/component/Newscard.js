@@ -34,16 +34,31 @@ export class Newscard extends Component{
     var type=this.state.items
 
   var eco= [];
-  var sec= []; 
-  type.map((i)=>{
+  var sec= [];
+       var soci=[]
+       var ara =[]
+
+       type.map((i)=>{
       if(i.TypeF=="economie"){
           eco.push(i);
       }
       else if (i.TypeF=="securite"){
           sec.push(i);
+      }else if(i.TypeF=="arabe"){
+          ara.push(i)
+      }
+      else if(i.TypeF=="social"){
+          soci.push(i)
       }
   })
+       ara.sort(function (a, b) {
+           return new Date(b.Date) - new Date(a.Date);
 
+       });
+       soci.sort(function (a, b) {
+           return new Date(b.Date) - new Date(a.Date);
+
+       });
        eco.sort(function (a, b) {
            return new Date(b.Date) - new Date(a.Date);
 
@@ -81,35 +96,80 @@ export class Newscard extends Component{
       })
 
     types.push(max2)
-    AcNews=types;
+  console.log(ara)
+       console.log(soci)
          return (
 
             <div >
-                aaaaaaaaaaaaaaaaaaaaaaaa
-            {AcNews.map((i)=>
-            
-         (    <div  >
-                                  
-                    <Link to={`/article/${i._id}`} style={{textDecoration: 'none'}}>
-         <div  key={i._id}>
-         <figure >
-          <a>  <img src={i.Photo} style={{width: "350px", marginLeft:20}}/></a>
-          <figcaption style={{position : "relative" , top:"-190px" , backgroundColor : "red" , left:"315px" , height:"30px" , lineHeight:"30px" , width:"50px", padding : "0 15Opx" , color:"white" ,borderRight:" 6px solid #FFFFFF" ,marginRight:"20"}}>
-            {i.Type}
-          </figcaption>
-          </figure>
-          <div  >
-       <time className="dateTime">{i.Date}</time>
-       <h3 className="smallTitle"  > {i.news}</h3>
-       <hr></hr>
-   </div>
-         </div>
-     </Link>
-         </div>)
-      
-            )} 
+                {
+                    ara.slice(0,1).map((i)=>{
+                  return(  <div>
+
+                        <Link to={`/article/${i._id}`} style={{textDecoration: 'none'}}>
+                            <div>
+                                <figure>
+                                    <a> <img src={i.Photo} style={{width: "350px", marginLeft: 20}}/></a>
+                                    <figcaption style={{
+                                        position: "relative",
+                                        backgroundColor: "red",
+                                        left: "315px",
+                                        height: "30px",
+                                        lineHeight: "30px",
+                                        width: "50px",
+                                        padding: "0 15Opx",
+                                        color: "white",
+                                        borderRight: " 6px solid #FFFFFF",
+                                        marginRight: "20",
+                                        top:"-180px"
+                                    }}>
+                                        {i.Type}
+                                    </figcaption>
+                                </figure>
+                                <div>
+                                    <time className="dateTime">{i.Date}</time>
+                                    <h3 className="smallTitle">{i.news}</h3>
+                                    <hr></hr>
+                                </div>
+                            </div>
+
+                        </Link>
+                    </div>)})}
             <div>
+                {
+                    soci.slice(0,1).map((i)=>{
+                        return(  <div>
+
+                            <Link to={`/article/${i._id}`} style={{textDecoration: 'none'}}>
+                                <div>
+                                    <figure>
+                                        <a> <img src={i.Photo} style={{width: "350px", marginLeft: 20}}/></a>
+                                        <figcaption style={{
+                                            position: "relative",
+                                            backgroundColor: "red",
+                                            left: "315px",
+                                            height: "30px",
+                                            lineHeight: "30px",
+                                            width: "50px",
+                                            padding: "0 15Opx",
+                                            color: "white",
+                                            borderRight: " 6px solid #FFFFFF",
+                                            marginRight: "20",
+                                            top:"-180px"
+                                        }}>
+                                            {i.Type}
+                                        </figcaption>
+                                    </figure>
+                                    <div>
+                                        <time className="dateTime">{i.Date}</time>
+                                        <h3 className="smallTitle">{i.news}</h3>
+                                        <hr></hr>
+                                    </div>
+                                </div>
+
+                            </Link>
+                        </div>)})}
             <div>
+
   <div>
   <div style={{height: "76px" , width: "320px"}} >
    {

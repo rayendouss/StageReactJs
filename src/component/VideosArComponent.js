@@ -7,43 +7,58 @@ import CardTitle from "reactstrap/es/CardTitle";
 import CardBody from "reactstrap/es/CardBody";
 import {CardContent} from "semantic-ui-react";
 import { Link } from 'react-router-dom';
-const Videos=(props)=> {
-    const news = News;
-    const a =window.location.pathname;
-    const url = a.substring(a.lastIndexOf('/') + 1)
-    var i = 0 ;
-    return (
+export class Videos extends Component {
+    state={
+        items:[],
+        isLoaded:false
+    }
 
-        <div >
-            <section>
+    componentDidMount() {
+        fetch('http://localhost:3100/all')
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({ items: data.news ,isLoaded : true })
 
-            <br></br>
-    <div  style={{backgroundColor : "white" , color : "black", textAlign: "right" ,      borderRight:" 6px solid #d10909" ,marginRight : 30}} >
-        <h2>{url}</h2>
+            })
+            .catch(console.log)
 
-    </div>
-                <div className="row" style={{marginLeft:450}}>
-                {
-                    news.map((i)=>{
-                        if(i.videos !=""){
-                            return(
-             <div className="row" style={{marginLeft:40}}>
-                 <Link to={`/article/${i.id}`}  style={{textDecoration: 'none'}}>
-                   <Card >
+    }
 
-                       <CardImg src={i.photo} />
-                       <br></br>
-                       <CardContent  > {i.news}</CardContent>
-                       <h6 className="dateTime2" style={{float: "right"}}>{i.date}</h6>
+    render() {
+        console.log(this.state.items)
+        return (
+            <div>
+                <section>
 
-                   </Card>
-                 </Link>
-             </div>
+                    <br></br>
+                    <div  style={{backgroundColor : "white" , color : "black", textAlign: "right" ,      borderRight:" 6px solid #d10909" ,marginRight : 30}} >
+                        <h2>متابعات بالفيديو</h2>
 
-                            )}})}</div>
+                    </div>
+                    <div className="row" style={{marginLeft:450}}>
+                        {
+                            this.state.items.map((i)=>{
+                                if(i.Videos !="null"){
+                                    return(
 
-            </section>
-        </div>
-    )
+                                        <div className="row" style={{marginLeft:40}}>
+                                            <Link to={`/article/${i._id}`}  style={{textDecoration: 'none'}}>
+                                                <Card >
+
+                                                    <CardImg src={i.Photo} />
+                                                    <br></br>
+                                                    <CardContent  > {i.news}</CardContent>
+                                                    <h6 className="dateTime2" style={{float: "right"}}>{i.Date}</h6>
+
+                                                </Card>
+                                            </Link>
+                                        </div>
+
+                                    )}})}</div>
+
+                </section>
+            </div>
+        );
+    }
 }
 export default Videos ;

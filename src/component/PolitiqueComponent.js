@@ -18,6 +18,7 @@ class Contacts extends Component {
     render() {
         var { isLoaded , items} = this.state
         const news=items
+        const techsuivi= items;
         console.log(news)
         const
             a = window.location.pathname;
@@ -31,10 +32,8 @@ class Contacts extends Component {
                 types.push(it)
             }
         })
+
         console.log(types)
-
-
-
 
         const pa = news.sort(function (a, b) {
             return new Date(b.Date) - new Date(a.Date);
@@ -43,6 +42,21 @@ class Contacts extends Component {
 
 
         console.log(pa)
+        console.log(techsuivi)
+        let tech=[];
+      techsuivi.map((t)=>{
+            if(t.TypeF=== "technologie"){
+                tech.push(t)
+            }
+        })
+        let suivi=[];
+      techsuivi.map((s)=>{
+            if(s.TypeF=== "suivi"){
+                suivi.push(s)
+            }
+        })
+        console.log(tech)
+        console.log(suivi)
         types.sort(function (a, b) {
             return new Date(b.Date) - new Date(a.Date);
 
@@ -82,6 +96,7 @@ class Contacts extends Component {
                                 })
                             }
                         </div>
+
                         <div  style={{backgroundColor : "black" , color : "white", textAlign: "right" ,      borderRight:" 6px solid #d10909"}}>
                             <h2>الأكثر قراءة</h2>
                             <hr />
@@ -112,7 +127,85 @@ class Contacts extends Component {
                             }
                         </div>
                     </section>
-                        <div style={{marginLeft : 490}} >
+
+                        <div  style={{marginLeft:20 , top:"-200px"}}>
+                            <div>
+                          <br></br>
+                            </div>
+                            <div>
+                                {
+                                    suivi.slice(0,1).map((i)=>{
+                                        return (  <div className="row" >
+
+                                            <div style={{height: "76px" , width: "320px", marginRight:"10px" }}>
+                                                <Link  to={`/article/${i._id}`} style={{textDecoration: 'none'}}>
+                                                    <div  key={i._id}>
+                                                        <figure >
+
+                                                            <a>  <img src={i.Photo} style={{width: "350px", marginLeft:20}}/></a>
+                                                            <figcaption style={{position : "relative" , top:"-190px" , backgroundColor : "red" ,  left:"290px" , height:"30px" , lineHeight:"30px" , width:"80px", padding : "0 15Opx" , color:"white" ,borderRight:" 6px solid #FFFFFF" ,marginRight:"20"}}>
+                                                                {i.Type}
+                                                            </figcaption>
+                                                        </figure>
+                                                        <div  >
+                                                            <time className="dateTime">{i.Date}</time>
+                                                            <h3 className="smallTitle"  > {i.news}</h3>
+                                                            <hr></hr>
+                                                        </div>
+                                                    </div>
+
+                                                </Link>
+
+                                            </div>
+
+                                        </div>)})
+                                }
+                            </div>
+                            <div>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br> <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                            </div>
+
+                            <div>
+                                {
+                                    tech.slice(0,1).map((i)=>{
+                                        return (  <div className="row" >
+
+                                            <div style={{height: "76px" , width: "320px", marginRight:"10px" }}>
+                                                <Link  to={`/article/${i._id}`} style={{textDecoration: 'none'}}>
+                                                    <div  key={i._id}>
+                                                        <figure >
+
+                                                            <a>  <img src={i.Photo} style={{width: "350px", marginLeft:20}}/></a>
+                                                            <figcaption style={{position : "relative" , top:"-190px" , backgroundColor : "red" , left:"290px" , height:"30px" , lineHeight:"30px" , width:"80px", padding : "0 15Opx" , color:"white" ,borderRight:" 6px solid #FFFFFF" ,marginRight:"20"}}>
+                                                                {i.Type}
+                                                            </figcaption>
+                                                        </figure>
+                                                        <div  >
+                                                            <time className="dateTime">{i.Date}</time>
+                                                            <h3 className="smallTitle"  > {i.news}</h3>
+                                                            <hr></hr>
+                                                        </div>
+                                                    </div>
+
+                                                </Link>
+
+                                            </div>
+
+                                        </div>)})
+                                }
+                            </div>
+
+                        </div>
+                        <div style={{marginLeft : 190}} >
                             <br></br>
                             <div  style={{backgroundColor : "white" , color : "black", textAlign: "right" ,      borderRight:" 6px solid #d10909"}}>
                                 <h2>{url.replace()}</h2>
@@ -125,18 +218,18 @@ class Contacts extends Component {
                                     return(
                                                 <div>
 
-                                                    <div >
+                                                    <div style={{marginLeft:15}}>
                                                         <Link to={`/article/${i._id}`} style={{textDecoration: 'none'}}>
                                                             <div >
                                                                 <figure >
-                                                                    <a>  <img src={i.Photo} style = {{ width : 700, height :450}} /></a>
+                                                                    <a>  <img src={i.Photo} style = {{ width : 660, height :420}} /></a>
                                                                     <figcaption >
                                                                         {i.Type}
                                                                     </figcaption>
                                                                 </figure>
                                                             </div>
-                                                            <h6 className="dateTime2" style={{float: "right"}}>{i.Date}</h6> <br></br>
-                                                            <p style={{float: "right"}}>{i.news}</p>
+                                                            <h6 className="dateTime2">{i.Date}</h6> <br></br>
+                                                            <p >{i.news}</p>
                                                         </Link>
                                                     </div>
                                                 </div>)})}
